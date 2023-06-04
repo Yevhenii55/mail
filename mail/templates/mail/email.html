@@ -1,0 +1,16 @@
+{% extends "mail/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <h2>{{ request.user.email }}</h2>
+
+    <div id="email-view">
+        <div class="email-details">
+            <div class="email-sender">From: {{ email.sender }}</div>
+            <div class="email-recipients">To: {{ email.recipients }}</div>
+            <div class="email-subject">Subject: {{ email.subject }}</div>
+            <div class="email-timestamp">Timestamp: {{ email.timestamp|date:"F d, Y H:i" }}</div>
+        </div>
+        <div class="email-body">{{ email.body }}</div>
+    </div>
+{% endblock %}
